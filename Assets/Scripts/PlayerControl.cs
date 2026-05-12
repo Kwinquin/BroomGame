@@ -1,4 +1,3 @@
-using Unity.Burst.Intrinsics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,16 +8,39 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] public AudioClip gamemakerexplosion; 
     private float movementX;
     private float movementY;
+    float lookAngle;
     
     [SerializeField] private float speed = 5f;
     void OnMove(InputValue value)
     {
         // get the 2D vector that represents the input value
-        Vector2 v = value.Get<Vector2>();
-        Debug.Log(v);
+        Vector2 inputVector = value.Get<Vector2>();
+        Debug.Log(inputVector);
         
-        movementX = v.x;
-        movementY = v.y;
+        movementX = inputVector.x;
+        movementY = inputVector.y;
+
+        if (movementY != 0)
+        {
+            lookAngle = 180 * (Mathf.Atan(-movementX/movementY)) / Mathf.PI;
+
+            if (movementY < 0)
+            {
+            lookAngle += 180;
+            }
+        }
+        else if (movementX > 0)
+        {
+            lookAngle = -90;
+        }
+        else if (movementX < 0)
+        {
+            lookAngle = 90;
+        }
+
+        Debug.Log(lookAngle);
+        transform.rotation = Quaternion.Euler(0, 0, lookAngle);
+
     }
     
     void Start()
@@ -38,8 +60,7 @@ public class PlayerControl : MonoBehaviour
         float YmoveDistance = movementY * speed * Time.fixedDeltaTime;
 
         transform.position = new Vector2(transform.position.x + XmoveDistance, transform.position.y + YmoveDistance);
-        transform.Rotate(0, 0, movementX + movementY);
-
+ 
     }
     void Update()
     {
