@@ -548,7 +548,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 336.16797
+  orthographic size: 125
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -573,8 +573,8 @@ Transform:
   m_GameObject: {fileID: 1244221502}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -45.376232, y: 246.72566, z: -10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -443.8, y: 412.2, z: -10}
+  m_LocalScale: {x: 0.2664, y: 0.2664, z: 0.2664}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -680,7 +680,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1684432315}
   - component: {fileID: 1684432314}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Desk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -755,7 +755,7 @@ Transform:
   m_GameObject: {fileID: 1684432313}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -44, y: 245, z: -1}
+  m_LocalPosition: {x: -58.8, y: 227.1, z: -1}
   m_LocalScale: {x: 66.46389, y: 95, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -885,8 +885,8 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1244221506}
+  - {fileID: 177434176}
   - {fileID: 1684432315}
   - {fileID: 1448977152}
-  - {fileID: 177434176}
   - {fileID: 751705789}
   - {fileID: 2009117717}
