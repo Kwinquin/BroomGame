@@ -184,6 +184,7 @@ MonoBehaviour:
   enemiesToSpawn: []
   currWave: 1
   waveValue: 0
+  spawnLocation: {fileID: 72171139}
 --- !u!4 &215063245
 Transform:
   m_ObjectHideFlags: 0
@@ -344,7 +345,7 @@ GameObject:
   - component: {fileID: 691770811}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -420,8 +421,7 @@ Transform:
   m_LocalPosition: {x: 0.5, y: -1.52, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1834443439}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &732958145
@@ -837,12 +837,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1834443436}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.5, y: 1.52, z: -10}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 691770812}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1834443440
 MonoBehaviour:
@@ -898,9 +898,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1890587759}
   - component: {fileID: 1890587758}
-  - component: {fileID: 1890587761}
-  - component: {fileID: 1890587760}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: A*
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -921,7 +919,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: AstarPathfindingProject::AstarPath
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAACAn+tJlGWLVgIAABEFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VE1z2jAQ/SuMzqVjEzqB3lpDSA8kTGgnF1+EtMYaZMmjjwDJ8N+7km3s0OkJzXtvd99+mA8ilK2BOW1WRvC15kC+j0h4ky+jnnyEE91rtRXv0GleBXdlENGoeaFOaMTTEGZ1Bc4I9kPtZRAnCHolCm2qJd9Dpq2zCBdUWkDKaBeiFUIfI3LCn/E8hJzxNbkPr3d8zZPRBZ8MlAPTSzthJ2tUXjFJqxp4sNyL01mrThuZwmZaRTDOtJTCtk6IO9ex04zW1mMfKOCCYmexfNCXIPalCy6Hwc9FYcG1lgw9L4TBATVZyU/dTK2i9tD4eqPSw9V4k3L9DztOI10YXT12VdMkVHClYIcXembUusFQh/Dis22vjlQe6E7CawnqSa+M9ooj6YwPod7CZDFIde0sK4Edel3j9Qb09f93E5q4xOZPmRTVLlBfpw2wlTqOO24eDC7mFzqOd2HbFIgGF38s/Kb74QG1xIMw1iHVtqmCvZ32JkjJMg4tdONdpo2CCLema1BUuvMG07jbDd5wg7I3zAMNn0pbvOW6L+AmJMK9PkluqI0+XrdlS31cgy2fvZNCQW86EE84p0wr1RzYcCZd2NabgrJB2N4L/vm2yOyOzaaTdHo/5cUuSWZjSOdpsqN0Np9M2Dd+R+LxCYV9UrlpjLbjwa2pPrnCQ+v+QUYrQ+t47NzQ40q8V3owcqEKvWUGQD03Ga7GwWAR/Cj5kgsc0BacEyrum3zkRGp2AJ5fE+Wx0+XJGZr3WXJSizftApKTLP5l5CTA11veGHgTcAzFu2QXcvkLUEsDBBQAAAgIAACAn+u8xOUPbQAAAHgAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNEz0jM011FQSi9KLMgoBooYgjilmSkgdrSShXGyhYmRoYm5SUpakoGBhW6qoaWhQVJiooWlkVGyaYqxUixQfUllQapfYm4qRE9AYklGWmZeSmZeup57UWaKO8hopdhaAFBLAQItABQAAAgIAACAn+tJlGWLVgIAABEFAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAACAn+u8xOUPbQAAAHgAAAAJACQAAAAAAAAAAAAAAKMCAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAAWwMAAAAA
+    dataString: UEsDBBQAAAgIAACAn+tQVti4WAIAABUFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VE1z2jAQ/SuMzqVjEzqB3lpDSA8kTGgnF1+EtMYaZMmjjwDJ8N+7km3s0OkJ8d7b1dsP+YMIZWtgTpuVEXytOZDvIxLO5MuoJx/hRPdabcU7dJpXwV0ZRDRqXqgTGvE0hFldgTOC/VB7GcQJgl6JQptqyfeQaesswgWVFpAy2oVohdDHiJzwZzwPIWc8Te7D6R1P82R0wSMD5cD00k7YyRqVV0zSqgYeLPfiNEk6fThGqcKCWlUwz7SUwrZuiDvXsdqM1tZjLSjggmJ10ULQlyD2pQtOh8HPRWHBtbYMPS+EwSY1WclP3XSuovbQeHuj0sPVfJNy/Q87TiNdGF09dremsSBXCnZ4oWdGrRs0dggvPtv26kjlge4kvJagnvTKaK84ks74EOotTBb932thWQns0OON1Q7s7vX1/+cTirjE4k+ZFNUuUF+nDbCVOrY7Th8MDuYXOo67YdsUiAYbfyz8pvvhErXEgzDWIdWWqYK/nfYmSMkyNi2U412mjYIIt6XUoKh05w2mcbcTvOEG194wDzQ8l/bylutewU1IhHt9ktxQG328TsuW+rgGWz57J4WC3nQgnrBPmVaqWbBhT7qwrTcFZYOwvRf8826R2R2bTSfp9H7Ki12SzMaQztNkR+lsPpmwb/yOxOUTCuukctMYbduDU1N9coWL1n1FRitD67js3NDjSrxXetByoQq9ZQZAPTcZrsbB4CX4KPmSC2zQFpwTKs6bfOREanYAnl8T5bHS5ckZmvdZclKLN+0CkpMsfjZyEuDrMm8MvAk4hsu7ZBdy+QtQSwMEFAAACAgAAICf67zE5Q9tAAAAeAAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSMzTXUVBKL0osyCgGihiCOKWZKSB2tJKFcbKFiZGhiblJSlqSgYGFbqqhpaFBUmKihaWRUbJpirFSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nntRZoo7yGil2FoAUEsBAi0AFAAACAgAAICf61BW2LhYAgAAFQUAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAAICf67zE5Q9tAAAAeAAAAAkAJAAAAAAAAAAAAAAApQIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAABdAwAAAAA=
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
@@ -977,76 +975,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1890587760
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1890587757}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6eb1402c17e84a9282a7f0f62eb584f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: AstarPathfindingProject::Pathfinding.AIPath
-  version: 5
-  radius: 0.5
-  height: 2
-  canMove: 1
-  maxSpeed: 1
-  gravity: {x: NaN, y: NaN, z: NaN}
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  centerOffsetCompatibility: NaN
-  repathRateCompatibility: NaN
-  canSearchCompability: 0
-  orientation: 1
-  enableRotation: 1
-  autoRepath:
-    mode: 2
-    interval: 0.5
-    sensitivity: 10
-    maximumInterval: 2
-    visualizeSensitivity: 0
-  targetCompatibility: {fileID: 0}
-  maxAcceleration: -2.5
-  rotationSpeed: 360
-  slowdownDistance: 0.6
-  pickNextWaypointDist: 2
-  endReachedDistance: 0.2
-  alwaysDrawGizmos: 0
-  slowWhenNotFacingTarget: 1
-  whenCloseToDestination: 0
-  constrainInsideGraph: 0
---- !u!114 &1890587761
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1890587757}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: AstarPathfindingProject::Pathfinding.Seeker
-  version: 1
-  drawGizmos: 1
-  detailedGizmos: 0
-  startEndModifier:
-    addPoints: 0
-    exactStartPoint: 0
-    exactEndPoint: 0
-    useRaycasting: 0
-    mask:
-      serializedVersion: 2
-      m_Bits: 4294967295
-    useGraphRaycasting: 0
-  traversableTags: -1
-  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  graphMask:
-    value: -1
 --- !u!1 &2109407920
 GameObject:
   m_ObjectHideFlags: 0
@@ -1188,6 +1116,7 @@ CanvasRenderer:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1834443439}
   - {fileID: 72171139}
   - {fileID: 758170945}
   - {fileID: 732958148}
