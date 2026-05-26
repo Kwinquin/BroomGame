@@ -31,4 +31,6 @@ public class EnemyAI : MonoBehaviour
             ai.destination = destination.position;
         }
     }
+
+    
 }

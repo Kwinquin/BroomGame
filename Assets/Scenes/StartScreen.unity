@@ -1285,7 +1285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3205d352daafa249bf80882313d8d86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScreenChanges
-  sceneName: SampleScene
+  sceneName: PlayerScene
 --- !u!1 &1558845120
 GameObject:
   m_ObjectHideFlags: 0

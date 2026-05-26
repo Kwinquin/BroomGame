@@ -4,22 +4,11 @@ using System.Collections.Generic;
 [CreateAssetMenu(fileName = "NewInventory", menuName = "Assets")]
 public class Inventory : ScriptableObject
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public const int size = 6;
 
-    private List<GameObject> InventoryContainer = new List<GameObject>();
+    private List<ItemData> InventoryContainer = new List<ItemData>();
 
-    public bool AddItem(GameObject item)
+    public bool AddItem(ItemData item)
     {
         if (InventoryContainer.Count >= size)
         {
@@ -30,8 +19,13 @@ public class Inventory : ScriptableObject
         return true;
     }
 
-    public List<GameObject> GetItems()
+    public List<ItemData> GetItems()
     {
         return InventoryContainer;
+    }
+
+    public void ClearInventory()
+    {
+        InventoryContainer.Clear();
     }
 }
