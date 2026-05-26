@@ -4,6 +4,15 @@ public class EnemyHealth : MonoBehaviour
 {
     private int currentHealth;
 
+    public MonsterWave waveManager;
+
+    void Start()
+    {
+        //this is working, don't move it
+        waveManager = GameObject.FindWithTag("Manager").GetComponent<MonsterWave>();
+    }
+
+
     public void Initialize(int maxHealth)
     {
         currentHealth = maxHealth;
@@ -14,19 +23,25 @@ public class EnemyHealth : MonoBehaviour
         currentHealth -= amount;
         Debug.Log("Ouch");
 
-        if (currentHealth <= 0) { }
+        if (currentHealth <= 0) 
+        { 
             Die();
-
-    }
-
-    void Die()
-    {
-        Debug.Log("Rip");
-        Destroy(gameObject);
+        }
+            
     }
 
     void OnMouseDown()
     {
         TakeDamage(1);
+    }
+
+    void Die()
+    {
+        if (waveManager != null)
+            waveManager.EnemyDied();
+
+        Debug.Log("Rip");
+
+        Destroy(gameObject);
     }
 }

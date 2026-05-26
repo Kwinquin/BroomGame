@@ -4,29 +4,43 @@ using UnityEngine;
 
 public class MonsterWave : MonoBehaviour
 {
+    [Header("Enemy Types")]
     public List<EnemyData> enemyTypes;
     public List<EnemyData> enemiesToSpawn = new List<EnemyData>();
 
+    [Header("Wave Settings")]
     public int currWave = 1;
     public int waveValue;
 
-    // public Transform spawnLocation;
+    [Header("Wave Tracking")]
+    public int enemiesAlive = 0;
+    public bool waveActive = false;
 
-    void OnTriggerEnter2D(Collider2D other)
+    private void Start()
     {
-        if (other.CompareTag("Player"))
-        {
-            Debug.Log("Player entered the trigger zone!");
-            GenerateWave();
-            StartCoroutine(SpawnWave());
-
-        }
+        StartCoroutine(StartNextWaveAfterDelay(3f));
     }
 
-    void Start()
+    IEnumerator StartNextWaveAfterDelay(float delay)
     {
-        //GenerateWave();
-        //StartCoroutine(SpawnWave());
+        yield return new WaitForSeconds(delay);
+        StartWave();
+    }
+
+//void OnTriggerEnter2D(Collider2D other)
+//    {
+//        if (other.CompareTag("Player") && !waveActive)
+//        {
+//            Debug.Log("Player entered the trigger zone!");
+//            StartWave();
+//        }
+//    }
+
+    void StartWave()
+    {
+        waveActive = true;
+        GenerateWave();
+        StartCoroutine(SpawnWave());
     }
 
     void GenerateWave()
@@ -74,9 +88,41 @@ public class MonsterWave : MonoBehaviour
             EnemyHealth health = obj.GetComponent<EnemyHealth>();
             health.Initialize(data.maxHealth);
 
-            yield return new WaitForSeconds(5f);
+            health.waveManager = this;
+
+            enemiesAlive++;
+
+            yield return new WaitForSeconds(1.5f);
         }
 
         enemiesToSpawn.Clear();
     }
+
+    public void EnemyDied()
+    {
+        enemiesAlive--;
+
+        if (enemiesAlive <= 0 && waveActive)
+        {
+            WaveComplete();
+        }
+    }
+
+    void WaveComplete()
+    {
+        waveActive = false;
+
+        Debug.Log("Wave " + currWave + " complete!");
+
+        currWave++;
+
+        //idk if we want this
+        //StartCoroutine(StartNextWaveAfterDelay(3f));
+    }
+
+    //IEnumerator StartNextWaveAfterDelay(float delay)
+    //{
+    //    yield return new WaitForSeconds(delay);
+    //    StartWave();
+    //}
 }
