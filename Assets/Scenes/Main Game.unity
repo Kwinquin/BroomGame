@@ -207,7 +207,7 @@ MonoBehaviour:
       Offset: {x: 0, y: 0}
   CenterOnActivate: 1
   TargetOffset: {x: 0, y: 0, z: 0}
-  Damping: {x: 0.5, y: 0.5}
+  Damping: {x: 0, y: 0}
   Lookahead:
     Enabled: 0
     Time: 0
@@ -227,7 +227,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineFollow
   TrackerSettings:
     BindingMode: 4
-    PositionDamping: {x: 1, y: 1, z: 1}
+    PositionDamping: {x: 0, y: 0, z: 0}
     AngularDampingMode: 0
     RotationDamping: {x: 1, y: 1, z: 1}
     QuaternionDamping: 1
@@ -781,8 +781,8 @@ Transform:
   m_GameObject: {fileID: 490776397}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.899994, y: -1.0400025, z: 10}
-  m_LocalScale: {x: 0.02, y: 0.02, z: 1}
+  m_LocalPosition: {x: 2.41975, y: -0.51358145, z: 4.938271}
+  m_LocalScale: {x: 0.009876543, y: 0.009876542, z: 0.49382716}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1488249782}
@@ -1087,7 +1087,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerControl
   gamemakerexplosion: {fileID: 8300000, guid: aef47f6cce93cb2489d41132d5be35c8, type: 3}
-  speed: 5
+  speed: 10
 --- !u!212 &966626294
 SpriteRenderer:
   serializedVersion: 2
@@ -1410,8 +1410,8 @@ Transform:
   m_GameObject: {fileID: 1032916069}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.25999984, y: 1.3799988, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.16275705, z: 0.09626841}
+  m_LocalPosition: {x: -0.12839499, y: 0.6814809, z: 0}
+  m_LocalScale: {x: 0.09876543, y: 0.08037385, z: 0.047539953}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1488249782}
@@ -1817,12 +1817,12 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -58, y: 228.5, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 10.125, y: 10.125, z: 2.025}
+  m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 1032916072}
-  - {fileID: 490776401}
   - {fileID: 2082679927}
+  - {fileID: 490776401}
+  - {fileID: 1032916072}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1519384100
@@ -2438,8 +2438,8 @@ Transform:
   m_GameObject: {fileID: 2082679923}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.15999985, y: 0.05999756, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 0.10000001}
+  m_LocalPosition: {x: -0.07901227, y: 0.029628424, z: 0}
+  m_LocalScale: {x: 0.2962963, y: 0.2962963, z: 0.04938272}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1488249782}
