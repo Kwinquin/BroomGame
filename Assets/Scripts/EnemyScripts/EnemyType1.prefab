@@ -12,13 +12,13 @@ GameObject:
   - component: {fileID: 7611105614115517326}
   - component: {fileID: 7482020450140945081}
   - component: {fileID: 3750423345014496580}
-  - component: {fileID: -4723043363448252422}
   - component: {fileID: -7606557675125681373}
   - component: {fileID: -560312391300925998}
   - component: {fileID: -3471350866780894860}
+  - component: {fileID: -1156012867503077710}
   - component: {fileID: 2628108036818009811}
   - component: {fileID: 3361793481178520423}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EnemyType1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -172,18 +172,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-4723043363448252422
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3578607387308155049}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f5529217110ea94a89fdaee17a4b408, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
 --- !u!114 &-7606557675125681373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -266,6 +254,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fa6358b5c45ac649a40e6cceb4583d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAI
+--- !u!114 &-1156012867503077710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3578607387308155049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f5529217110ea94a89fdaee17a4b408, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
+  waveManager: {fileID: 0}
 --- !u!114 &2628108036818009811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -278,6 +279,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dec9e0edcf56631478027f591a47bfe3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAttack
+  damage: 1
+  attackCooldown: 2
 --- !u!58 &3361793481178520423
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -5,13 +5,21 @@ public class PlayerHealth : MonoBehaviour
     public int maxhealth = 20;
     private int currentPHealth;
 
+    void Start()
+    {
+        currentPHealth = maxhealth;
+    }
+    
+
     public void TakeDamageP(int amount)
     {
         currentPHealth -= amount;
         Debug.Log("Player Ouch");
 
-        if (currentPHealth <= 0) { }
+        if (currentPHealth <= 0)
+        {
             PDie();
+        }
 
     }
 
@@ -21,9 +29,4 @@ public class PlayerHealth : MonoBehaviour
         Destroy(gameObject);
     }
 
-    //void Update()
-    //{
-    //    if (Input.GetKeyDown(KeyCode.E)) 
-    //        TakeDamageP(1);
-    //}
 }
