@@ -8,38 +8,33 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] public AudioClip gamemakerexplosion; 
     private float movementX;
     private float movementY;
-    float lookAngle;
+    char direction;
+    
+
     
     [SerializeField] private float speed = 5f;
     void OnMove(InputValue value)
     {
-        // get the 2D vector that represents the input value
+        
         Vector2 inputVector = value.Get<Vector2>();
-        Debug.Log(inputVector);
         
         movementX = inputVector.x;
         movementY = inputVector.y;
 
-        if (movementY != 0)
-        {
-            lookAngle = 180 * (Mathf.Atan(-movementX/movementY)) / Mathf.PI;
-
-            if (movementY < 0)
-            {
-            lookAngle += 180;
-            }
+        
+        //inputdirection log
+        if (movementX > 0) {
+            direction = 'E';
         }
-        else if (movementX > 0)
-        {
-            lookAngle = -90;
+        if (movementX < 0){
+            direction = 'W';
         }
-        else if (movementX < 0)
-        {
-            lookAngle = 90;
+        if (movementY > 0) {
+            direction = 'N';
         }
-
-        Debug.Log(lookAngle);
-        transform.rotation = Quaternion.Euler(0, 0, lookAngle);
+        if (movementY < 0) {
+            direction = 'S';
+        }
 
     }
     
@@ -53,17 +48,38 @@ public class PlayerControl : MonoBehaviour
             audioSource.Play();
     }
 
-    // Update is called once per frame
+    void Attack()
+    {
+        
+    }
     void FixedUpdate()
     {
+        //basic movement
         float XmoveDistance = movementX * speed * Time.fixedDeltaTime;
         float YmoveDistance = movementY * speed * Time.fixedDeltaTime;
-
+        
         transform.position = new Vector2(transform.position.x + XmoveDistance, transform.position.y + YmoveDistance);
- 
+
+        //look direction 
+        switch (direction)
+        {
+            case 'N':
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+            break;
+            case 'S':
+            transform.rotation = Quaternion.Euler(0, 0, 180);
+            break;
+            case 'E':
+            transform.rotation = Quaternion.Euler(0, 0, -90);
+            break;
+            case 'W':
+            transform.rotation = Quaternion.Euler(0, 0, 90);
+            break;
+        }
+        
     }
     void Update()
     {
-        
+       
     }
 }
