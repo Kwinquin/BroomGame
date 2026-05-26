@@ -21,7 +21,7 @@ public class EnemyHealth : MonoBehaviour
     public void TakeDamage(int amount)
     {
         currentHealth -= amount;
-        Debug.Log("Ouch");
+        Debug.Log("Enemy Ouch");
 
         if (currentHealth <= 0) 
         { 
@@ -30,17 +30,17 @@ public class EnemyHealth : MonoBehaviour
             
     }
 
-    void OnMouseDown()
-    {
-        TakeDamage(1);
-    }
+    //void OnMouseDown()
+    //{
+    //    TakeDamage(1);
+    //}
 
     void Die()
     {
         if (waveManager != null)
             waveManager.EnemyDied();
 
-        Debug.Log("Rip");
+        Debug.Log("Enemy Rip");
 
         Destroy(gameObject);
     }

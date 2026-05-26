@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerAttack : MonoBehaviour
 {
@@ -6,12 +7,9 @@ public class PlayerAttack : MonoBehaviour
     public float attackRange = 1f;
     public LayerMask enemyLayer;
 
-    void Update()
+    void OnAttack()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Attack();
-        }
+        Attack();
     }
 
     void Attack()
@@ -20,6 +18,7 @@ public class PlayerAttack : MonoBehaviour
 
         foreach (Collider2D hit in hits)
         {
+            Debug.Log("Hit!");
             EnemyHealth eh = hit.GetComponent<EnemyHealth>();
             if (eh != null)
             {
@@ -33,4 +32,26 @@ public class PlayerAttack : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, attackRange);
     }
+
+ 
+    //public int damage = 1;
+    //public float attackCooldown = 5f;
+    //private float nextAttackTime = 10f;
+
+    //void OnTriggerStay2D(Collider2D other)
+    //{
+
+    //    if (other.CompareTag("Player") && Time.time >= nextAttackTime)
+    //    {
+    //        Debug.Log("OMG IT'S THE PLAYER, KILL IT");
+
+    //        PlayerHealth ph = other.GetComponent<PlayerHealth>();
+    //        if (ph != null)
+    //        {
+    //            ph.TakeDamageP(damage);
+    //            nextAttackTime = Time.time + attackCooldown;
+    //        }
+    //    }
+    //}
+
 }
