@@ -2,7 +2,10 @@ using UnityEngine;
 
 public class EnemyAttack : MonoBehaviour
 {
-    public int damage = 1;
+    public int attackADamage = 5;
+    public int attackBDamage = 10;
+    public int attackCDamage = 15;
+
     public float attackCooldown = 5f;
     private float nextAttackTime = 10f;
 
@@ -16,6 +19,26 @@ public class EnemyAttack : MonoBehaviour
             PlayerHealth ph = other.GetComponent<PlayerHealth>();
             if (ph != null)
             {
+                int attackChoice = Random.Range(0, 3);
+                int damage = 0;
+
+                // Determine which attack to use based on the random number
+                if (attackChoice == 0)
+                {
+                    Debug.Log("Enemy uses Attack A (-5 Health)");
+                    damage = attackADamage;
+                }
+                else if (attackChoice == 1)
+                {
+                    Debug.Log("Enemy uses Attack B (-10 Health)");
+                    damage = attackBDamage;
+                }
+                else if (attackChoice == 2)
+                {
+                    Debug.Log("Enemy uses Attack C (-15 Health)");
+                    damage = attackCDamage;
+                }
+
                 ph.TakeDamageP(damage);
                 nextAttackTime = Time.time + attackCooldown;
             }
@@ -34,7 +57,7 @@ public class EnemyAttack : MonoBehaviour
 //    StartCoroutine(BossStateMachine());
 //}
 
-//// Update is called once per frame
+// Update is called once per frame
 //void FixedUpdate()
 //{
 //    float distanceToPlayer = Vector2.Distance(transform.position, p.transform.position);
