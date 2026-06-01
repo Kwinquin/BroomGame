@@ -1,3 +1,4 @@
+
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,19 +10,29 @@ public class PlayerControl : MonoBehaviour
     private float movementX;
     private float movementY;
     char direction;
-    
-
-    
+    [SerializeField] Animator directionAnimator;
+    private Vector2 lastInputVector = Vector2.zero;
+    public enum Direction {None, Up, Right, Down, Left}
+    public Direction lastPressedDirection = Direction.None;
     [SerializeField] private float speed = 5f;
     void OnMove(InputValue value)
     {
         
         Vector2 inputVector = value.Get<Vector2>();
-        
+         
         movementX = inputVector.x;
         movementY = inputVector.y;
 
-        
+        if(inputVector.x != lastInputVector.x && inputVector.x != 0)
+        {
+            lastPressedDirection = inputVector.x > 0 ? Direction.Left : Direction.Right;         
+        }
+        else if (inputVector.y != lastInputVector.y && inputVector.y != 0)
+        {
+            lastPressedDirection = inputVector.y > 0 ? Direction.Up : Direction.Down; 
+        }
+
+       /* 
         //inputdirection log
         if (movementX > 0) {
             direction = 'E';
@@ -35,7 +46,7 @@ public class PlayerControl : MonoBehaviour
         if (movementY < 0) {
             direction = 'S';
         }
-
+        */
     }
     
     void Start()
@@ -60,7 +71,7 @@ public class PlayerControl : MonoBehaviour
         
         transform.position = new Vector2(transform.position.x + XmoveDistance, transform.position.y + YmoveDistance);
 
-        //look direction 
+        /*
         switch (direction)
         {
             case 'N':
@@ -76,10 +87,25 @@ public class PlayerControl : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, 0, 90);
             break;
         }
-        
+        */
     }
     void Update()
-    {
-       
+    {  
+        if(lastPressedDirection == Direction.Up)
+        {
+            directionAnimator.SetInteger("dir", 1);
+        }
+        if(lastPressedDirection == Direction.Right)
+        {
+            directionAnimator.SetInteger("dir", 2);
+        }
+        if(lastPressedDirection == Direction.Down)
+        {
+            directionAnimator.SetInteger("dir", 3);
+        }
+        if(lastPressedDirection == Direction.Left)
+        {
+            directionAnimator.SetInteger("dir", 4);
+        }
     }
 }
