@@ -3,55 +3,72 @@ using UnityEngine.InputSystem;
 
 public class PlayerAttack : MonoBehaviour
 {
-    public int damage = 1;
-    public float attackRange = 1f;
+    [Header("Move Slots")]
+    public MoveData lightAttack;
+    public MoveData heavyAttack;
+    public MoveData specialAttack;
+
+    [Header("Hitbox")]
+    public Transform attackPoint;   // this is the reference for the direction of attack
+
+    [Header("Combat Settings")]
     public LayerMask enemyLayer;
 
-    void OnAttack()
+    //private Animator animator; idk
+
+    void Awake()
     {
-        Attack();
+        //animator = GetComponent<Animator>();
     }
 
-    void Attack()
+    void OnLightAttack()
     {
-        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, attackRange, enemyLayer);
+        Debug.Log("Light Attack input received");
+        PerformAttack(lightAttack);
+    }
+
+    void OnHeavyAttack()
+    {
+        Debug.Log("Heavy Attack input received");
+        PerformAttack(heavyAttack);
+    }
+
+    void OnSpecialAttack()
+    {
+        Debug.Log("Special Attack input received");
+        PerformAttack(specialAttack);
+    }
+
+    void PerformAttack(MoveData move)
+    {
+        if (move == null)
+        {
+            Debug.Log("No move assigned to this slot");
+            return;
+        }
+
+        Debug.Log("Performing attack: " + move.moveName);
+
+        Collider2D[] hits = Physics2D.OverlapCircleAll(
+            attackPoint.position,
+            move.attackRange,
+            enemyLayer
+        );
 
         foreach (Collider2D hit in hits)
         {
-            Debug.Log("Hit!");
+            Debug.Log("Hit enemy: " + hit.name);
             EnemyHealth eh = hit.GetComponent<EnemyHealth>();
             if (eh != null)
-            {
-                eh.TakeDamage(damage);
-            }
+                eh.TakeDamage(move.damage);
         }
     }
 
     void OnDrawGizmosSelected()
     {
+        if (attackPoint == null) return;
+
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, attackRange);
+        Gizmos.DrawWireSphere(attackPoint.position, 1f);
     }
-
- 
-    //public int damage = 1;
-    //public float attackCooldown = 5f;
-    //private float nextAttackTime = 10f;
-
-    //void OnTriggerStay2D(Collider2D other)
-    //{
-
-    //    if (other.CompareTag("Player") && Time.time >= nextAttackTime)
-    //    {
-    //        Debug.Log("OMG IT'S THE PLAYER, KILL IT");
-
-    //        PlayerHealth ph = other.GetComponent<PlayerHealth>();
-    //        if (ph != null)
-    //        {
-    //            ph.TakeDamageP(damage);
-    //            nextAttackTime = Time.time + attackCooldown;
-    //        }
-    //    }
-    //}
-
 }

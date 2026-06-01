@@ -279,7 +279,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dec9e0edcf56631478027f591a47bfe3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAttack
-  damage: 1
+  attackADamage: 5
+  attackBDamage: 10
+  attackCDamage: 15
   attackCooldown: 2
 --- !u!58 &3361793481178520423
 CircleCollider2D:
