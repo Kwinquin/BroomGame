@@ -14,11 +14,11 @@ public class PlayerAttack : MonoBehaviour
     [Header("Combat Settings")]
     public LayerMask enemyLayer;
 
-    //private Animator animator; idk
+    private Animator attackAnimator;
 
     void Awake()
     {
-        //animator = GetComponent<Animator>();
+        attackAnimator = GetComponent<Animator>();
     }
 
     void OnLightAttack()

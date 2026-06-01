@@ -598,6 +598,7 @@ GameObject:
   - component: {fileID: 945405759}
   - component: {fileID: 945405765}
   - component: {fileID: 945405766}
+  - component: {fileID: 945405767}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -791,6 +792,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerControl
   gamemakerexplosion: {fileID: 8300000, guid: aef47f6cce93cb2489d41132d5be35c8, type: 3}
+  directionAnimator: {fileID: 945405767}
+  lastPressedDirection: 0
   speed: 5
 --- !u!212 &945405763
 SpriteRenderer:
@@ -900,6 +903,28 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 256
+--- !u!95 &945405767
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 945405758}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 711e71d27d9f2f845a3f968c19687f0c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1331463223
 GameObject:
   m_ObjectHideFlags: 0
@@ -1491,6 +1516,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerControl
   gamemakerexplosion: {fileID: 8300000, guid: aef47f6cce93cb2489d41132d5be35c8, type: 3}
+  directionAnimator: {fileID: 945405767}
+  lastPressedDirection: 0
   speed: 5
 --- !u!1 &2109407920
 GameObject:
