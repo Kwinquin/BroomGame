@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pokedown
+  m_Name: GuyPokeDown
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,13 +21,17 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: -3965860964509926612, guid: 19150b1f2bef99a4abfa6439ed095a54, type: 3}
+      value: {fileID: 21300000, guid: 1b5daa7a5cef6446d8e4a97d172afa4a, type: 3}
+    - time: 0.083333336
+      value: {fileID: 21300000, guid: 31ac7b0985c6f4edfbe56d0d8fb0f011, type: 3}
+    - time: 0.16666667
+      value: {fileID: 21300000, guid: 11d30717b3b624ce6a567994e4b324f7, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
     flags: 2
-  m_SampleRate: 1
+  m_SampleRate: 12
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -44,13 +48,15 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: -3965860964509926612, guid: 19150b1f2bef99a4abfa6439ed095a54, type: 3}
+    - {fileID: 21300000, guid: 1b5daa7a5cef6446d8e4a97d172afa4a, type: 3}
+    - {fileID: 21300000, guid: 31ac7b0985c6f4edfbe56d0d8fb0f011, type: 3}
+    - {fileID: 21300000, guid: 11d30717b3b624ce6a567994e4b324f7, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1
+    m_StopTime: 0.25
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
