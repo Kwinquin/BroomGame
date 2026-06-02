@@ -33,6 +33,8 @@ public class EnemyAI : MonoBehaviour
         if (ai != null && destination != null) 
         {
             ai.destination = destination.position;
+
+            HandleAnimations();
         }
     }
     void HandleAnimations()
@@ -41,11 +43,11 @@ public class EnemyAI : MonoBehaviour
 
         if (horizontalSpeed > 0.1f)
         {
-            spriteRenderer.flipX = false; // Facing Right (Default)
+            spriteRenderer.flipX = true; // Facing Right (Default)
         }
         else if (horizontalSpeed < -0.1f)
         {
-            spriteRenderer.flipX = true;  // Facing Left (Flipped)
+            spriteRenderer.flipX = false;  // Facing Left (Flipped)
         }
         if (animator != null)
         {
