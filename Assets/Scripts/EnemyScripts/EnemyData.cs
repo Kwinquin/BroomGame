@@ -4,6 +4,6 @@ using UnityEngine;
 public class EnemyData : ScriptableObject
 {
     public GameObject prefab;
-    public int cost;
+    public int difficulty = 1;
     public int maxHealth;
 }

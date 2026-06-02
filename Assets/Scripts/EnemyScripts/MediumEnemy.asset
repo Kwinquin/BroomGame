@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: MediumEnemy
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
   prefab: {fileID: 3578607387308155049, guid: d4318b33db595514d8a92630233376d6, type: 3}
-  cost: 5
+  difficulty: 1
   maxHealth: 20
