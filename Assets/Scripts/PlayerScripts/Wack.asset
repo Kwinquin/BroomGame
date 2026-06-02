@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1688d782cbab64d4e900bf62898c8a2d, type: 3}
-  m_Name: Sweep
+  m_Name: Wack
   m_EditorClassIdentifier: Assembly-CSharp::MoveData
   moveName: Poke
-  damage: 20
+  damage: 10
   attackRange: 1
-  cooldown: 5
+  cooldown: 1
   animation: {fileID: 0}

@@ -6,17 +6,21 @@ using UnityEngine.InputSystem;
 
 public class PlayerControl : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    
     private AudioSource audioSource;
     [SerializeField] public AudioClip gamemakerexplosion; 
+
     private float movementX;
     private float movementY;
+
     [SerializeField] Animator directionAnimator;
+
     private Vector2 lastInputVector = Vector2.zero;
     public enum Direction {None, Up, Right, Down, Left}
     public Direction lastPressedDirection = Direction.None;
     [SerializeField] private float speed = 5f;
     public char direction;
+
     [SerializeField] float attackHitboxOffset;
     private Transform hitboxTransform;
     void OnMove(InputValue value)

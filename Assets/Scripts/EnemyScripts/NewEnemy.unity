@@ -319,7 +319,7 @@ GameObject:
   - component: {fileID: 708818716}
   - component: {fileID: 708818717}
   m_Layer: 0
-  m_Name: nose
+  m_Name: AttackHitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -597,8 +597,8 @@ GameObject:
   - component: {fileID: 945405760}
   - component: {fileID: 945405759}
   - component: {fileID: 945405765}
-  - component: {fileID: 945405766}
   - component: {fileID: 945405767}
+  - component: {fileID: 945405768}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -795,6 +795,8 @@ MonoBehaviour:
   directionAnimator: {fileID: 945405767}
   lastPressedDirection: 0
   speed: 5
+  direction: 0
+  attackHitboxOffset: 0
 --- !u!212 &945405763
 SpriteRenderer:
   serializedVersion: 2
@@ -884,25 +886,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
   maxhealth: 20
---- !u!114 &945405766
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 945405758}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f794d3d666e25f4396406ced54e5531, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerAttack
-  lightAttack: {fileID: 11400000, guid: 68cb20a25e2361141b52f784e02855e6, type: 2}
-  heavyAttack: {fileID: 0}
-  specialAttack: {fileID: 0}
-  attackPoint: {fileID: 708818716}
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 256
 --- !u!95 &945405767
 Animator:
   serializedVersion: 7
@@ -925,6 +908,25 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &945405768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 945405758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18d47ab67a6c4dc49ac903c370c001e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerAttack
+  lightAttack: {fileID: 11400000, guid: 68cb20a25e2361141b52f784e02855e6, type: 2}
+  heavyAttack: {fileID: 11400000, guid: 8755471f94d265348a4ed895d2017d58, type: 2}
+  specialAttack: {fileID: 11400000, guid: 68cb20a25e2361141b52f784e02855e6, type: 2}
+  attackPoint: {fileID: 708818716}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &1331463223
 GameObject:
   m_ObjectHideFlags: 0
@@ -1519,6 +1521,8 @@ MonoBehaviour:
   directionAnimator: {fileID: 945405767}
   lastPressedDirection: 0
   speed: 5
+  direction: 0
+  attackHitboxOffset: 0
 --- !u!1 &2109407920
 GameObject:
   m_ObjectHideFlags: 0
