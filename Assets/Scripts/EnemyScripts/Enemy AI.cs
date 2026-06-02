@@ -51,7 +51,7 @@ public class EnemyAI : MonoBehaviour
         }
         if (animator != null)
         {
-            animator.SetFloat("Speed", ai.velocity.magnitude);
+            //animator.SetFloat("Speed", ai.velocity.magnitude);
         }
     } 
 }
