@@ -309,7 +309,6 @@ MonoBehaviour:
     m_Bits: 0
   heavyUnlocked: 0
   specialUnlocked: 0
-  attacking: 0
 --- !u!1 &918046619
 GameObject:
   m_ObjectHideFlags: 0
@@ -815,9 +814,8 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 0
-  heavyUnlocked: 0
-  specialUnlocked: 0
-  attacking: 0
+  heavyUnlocked: 1
+  specialUnlocked: 1
 --- !u!1 &1428072167
 GameObject:
   m_ObjectHideFlags: 0
