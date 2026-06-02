@@ -268,8 +268,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
   waveManager: {fileID: 0}
-  damageSound: {fileID: 8300000, guid: c64440414400f0c4aa5480e5a3927f76, type: 3}
-  deathSound: {fileID: 8300000, guid: 5f2945c14969d7b4893cb20d9aeb6b48, type: 3}
 --- !u!114 &2628108036818009811
 MonoBehaviour:
   m_ObjectHideFlags: 0

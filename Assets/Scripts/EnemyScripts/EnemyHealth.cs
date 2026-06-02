@@ -11,9 +11,6 @@ public class EnemyHealth : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Color originalColor;
 
-    public AudioClip damageSound;
-    public AudioClip deathSound;
-
 
     void Start()
     {
@@ -22,7 +19,6 @@ public class EnemyHealth : MonoBehaviour
 
         spriteRenderer = GetComponent<SpriteRenderer>();
         originalColor = spriteRenderer.color;
-
     }
 
 
@@ -38,8 +34,6 @@ public class EnemyHealth : MonoBehaviour
         currentHealth -= amount;
         Debug.Log("Enemy Ouch");
         StartCoroutine(FlashRed());
-        OtherAudio.Instance.PlaySound(damageSound);
-
 
         if (currentHealth <= 0)
         {
@@ -61,8 +55,6 @@ public class EnemyHealth : MonoBehaviour
 
         if (waveManager != null)
             waveManager.EnemyDied();
-        OtherAudio.Instance.PlaySound(damageSound);
-
 
         Debug.Log("Enemy Rip");
 
