@@ -540,7 +540,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0773871e47a4c2e4eb559d86c97fb61c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HitboxRotation
-  direction: 0
 --- !u!1 &996174351
 GameObject:
   m_ObjectHideFlags: 0
@@ -819,13 +818,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f794d3d666e25f4396406ced54e5531, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttack
-  lightAttack: {fileID: 0}
-  heavyAttack: {fileID: 0}
-  specialAttack: {fileID: 11400000, guid: 68cb20a25e2361141b52f784e02855e6, type: 2}
-  attackPoint: {fileID: 982125768}
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1 &1428072167
 GameObject:
   m_ObjectHideFlags: 0
