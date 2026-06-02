@@ -19,7 +19,7 @@ public class PlayerAttack : MonoBehaviour
     [Header("Unlocks")]
     public bool heavyUnlocked = false;
     public bool specialUnlocked = false;
-
+    
 
     void Awake()
     {
@@ -28,6 +28,7 @@ public class PlayerAttack : MonoBehaviour
 
     void OnLightAttack()
     {
+        attackAnimator.SetTrigger("poke");
         PerformAttack(lightAttack);
     }
 
@@ -38,7 +39,7 @@ public class PlayerAttack : MonoBehaviour
             Debug.Log("Heavy attack not unlocked yet!");
             return;
         }
-
+        attackAnimator.SetTrigger("wack");
         PerformAttack(heavyAttack);
     }
 
@@ -49,7 +50,7 @@ public class PlayerAttack : MonoBehaviour
             Debug.Log("Special attack not unlocked yet!");
             return;
         }
-
+        attackAnimator.SetTrigger("sweep");
         PerformAttack(specialAttack);
     }
 
@@ -86,4 +87,5 @@ public class PlayerAttack : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(attackPoint.position, 1f);
     }
+
 }

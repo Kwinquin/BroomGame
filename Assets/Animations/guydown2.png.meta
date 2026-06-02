@@ -3,8 +3,8 @@ guid: 6ce4e7fba4a7842deb29cbab638c7242
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6107758474448997642
-    second: Untitled_Artwork-2 4_0
+      213: -7464878162508846923
+    second: guydown2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Untitled_Artwork-2 4_0
+      name: guydown2_0
       rect:
         serializedVersion: 2
         x: 6
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a0d0a63e8fd13c450800000000000000
-      internalID: 6107758474448997642
+      spriteID: 5b8e610acdc676890800000000000000
+      internalID: -7464878162508846923
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Untitled_Artwork-2 4_0: 6107758474448997642
+      guydown2_0: -7464878162508846923
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

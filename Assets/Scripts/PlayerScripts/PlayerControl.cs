@@ -1,5 +1,6 @@
 
 using System;
+using System.Collections;
 using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -55,12 +56,10 @@ public class PlayerControl : MonoBehaviour
             audioSource.Play();
     }
 
-    void Attack()
-    {
-        
-    }
     void FixedUpdate()
     {
+       
+        
         //basic movement
         float XmoveDistance = movementX * speed * Time.fixedDeltaTime;
         float YmoveDistance = movementY * speed * Time.fixedDeltaTime;
@@ -83,8 +82,8 @@ public class PlayerControl : MonoBehaviour
             case 'W':
             hitboxTransform.position = transform.position + new Vector3(attackHitboxOffset,0,0);
             break;
-        }
         
+        }
     }
     void Update()
     {  

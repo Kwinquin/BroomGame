@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: GuyDown
+  m_Name: wackleft
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,19 +21,13 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 21300000, guid: 852b40e1fcf9448fc9a0134efce1374f, type: 3}
-    - time: 0.33333334
-      value: {fileID: 21300000, guid: 6ce4e7fba4a7842deb29cbab638c7242, type: 3}
-    - time: 0.6666667
-      value: {fileID: 21300000, guid: f2c2feae7dd1f4cac919d287f34f7f85, type: 3}
-    - time: 1
-      value: {fileID: 21300000, guid: 3c005a507acfe4f5e9d60e2fa953766c, type: 3}
+      value: {fileID: 3825533066473538356, guid: 85e1f65a252c3a04ab4c5898c70b9d97, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
     flags: 2
-  m_SampleRate: 12
+  m_SampleRate: 1
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -50,16 +44,13 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 852b40e1fcf9448fc9a0134efce1374f, type: 3}
-    - {fileID: 21300000, guid: 6ce4e7fba4a7842deb29cbab638c7242, type: 3}
-    - {fileID: 21300000, guid: f2c2feae7dd1f4cac919d287f34f7f85, type: 3}
-    - {fileID: 21300000, guid: 3c005a507acfe4f5e9d60e2fa953766c, type: 3}
+    - {fileID: 3825533066473538356, guid: 85e1f65a252c3a04ab4c5898c70b9d97, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1.0833334
+    m_StopTime: 1
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

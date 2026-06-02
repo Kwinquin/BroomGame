@@ -300,6 +300,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18d47ab67a6c4dc49ac903c370c001e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttack
+  attacking: 0
   lightAttack: {fileID: 11400000, guid: 68cb20a25e2361141b52f784e02855e6, type: 2}
   heavyAttack: {fileID: 11400000, guid: 8755471f94d265348a4ed895d2017d58, type: 2}
   specialAttack: {fileID: 11400000, guid: 5d933962e93c0504889d85f5dbedf32f, type: 2}
@@ -309,7 +310,6 @@ MonoBehaviour:
     m_Bits: 0
   heavyUnlocked: 0
   specialUnlocked: 0
-  attacking: 0
 --- !u!1 &918046619
 GameObject:
   m_ObjectHideFlags: 0
@@ -808,6 +808,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18d47ab67a6c4dc49ac903c370c001e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttack
+  attacking: 0
   lightAttack: {fileID: 11400000, guid: 68cb20a25e2361141b52f784e02855e6, type: 2}
   heavyAttack: {fileID: 11400000, guid: 8755471f94d265348a4ed895d2017d58, type: 2}
   specialAttack: {fileID: 11400000, guid: 5d933962e93c0504889d85f5dbedf32f, type: 2}
@@ -817,7 +818,6 @@ MonoBehaviour:
     m_Bits: 0
   heavyUnlocked: 0
   specialUnlocked: 0
-  attacking: 0
 --- !u!1 &1428072167
 GameObject:
   m_ObjectHideFlags: 0
