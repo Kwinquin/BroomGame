@@ -5,7 +5,7 @@ public class EnemyHealth : MonoBehaviour
 {
     private int currentHealth;
 
-    //public MonsterWave waveManager;
+    public MonsterWave waveManager;
 
     private SpriteRenderer spriteRenderer;
     private Color originalColor;
@@ -14,7 +14,7 @@ public class EnemyHealth : MonoBehaviour
     void Start()
     {
         //this is working, don't move it
-        //waveManager = GameObject.FindWithTag("Manager").GetComponent<MonsterWave>();
+        waveManager = GameObject.FindWithTag("Manager").GetComponent<MonsterWave>();
         
         spriteRenderer = GetComponent<SpriteRenderer>();
         originalColor = spriteRenderer.color;
@@ -51,8 +51,8 @@ public class EnemyHealth : MonoBehaviour
 
     void Die()
     {
-        //if (waveManager != null)
-            //waveManager.EnemyDied();
+        if (waveManager != null)
+            waveManager.EnemyDied();
 
         Debug.Log("Enemy Rip");
 

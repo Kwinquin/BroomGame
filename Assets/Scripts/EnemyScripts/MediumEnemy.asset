@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fade733aba23f2d4789c5311ea34970c, type: 3}
-  m_Name: Enemy1
+  m_Name: MediumEnemy
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
-  prefab: {fileID: 3578607387308155049, guid: 65e547b165a011841b2cc48792c390d2, type: 3}
-  cost: 3
-  maxHealth: 10
+  prefab: {fileID: 3578607387308155049, guid: d4318b33db595514d8a92630233376d6, type: 3}
+  cost: 5
+  maxHealth: 20

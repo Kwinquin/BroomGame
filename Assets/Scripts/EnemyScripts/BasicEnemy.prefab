@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 2628108036818009811}
   - component: {fileID: 3361793481178520423}
   m_Layer: 8
-  m_Name: EnemyType1
+  m_Name: BasicEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -279,9 +279,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dec9e0edcf56631478027f591a47bfe3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAttack
-  attackADamage: 5
-  attackBDamage: 10
-  attackCDamage: 15
+  attackADamage: 2
+  attackBDamage: 5
+  attackCDamage: 10
   attackCooldown: 2
 --- !u!58 &3361793481178520423
 CircleCollider2D:

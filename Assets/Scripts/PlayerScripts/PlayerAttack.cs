@@ -16,6 +16,11 @@ public class PlayerAttack : MonoBehaviour
 
     private Animator attackAnimator;
 
+    [Header("Unlocks")]
+    public bool heavyUnlocked = false;
+    public bool specialUnlocked = false;
+
+
     void Awake()
     {
         attackAnimator = GetComponent<Animator>();
@@ -23,21 +28,31 @@ public class PlayerAttack : MonoBehaviour
 
     void OnLightAttack()
     {
-        Debug.Log("Light Attack input received");
         PerformAttack(lightAttack);
     }
 
     void OnHeavyAttack()
     {
-        Debug.Log("Heavy Attack input received");
+        if (!heavyUnlocked)
+        {
+            Debug.Log("Heavy attack not unlocked yet!");
+            return;
+        }
+
         PerformAttack(heavyAttack);
     }
 
     void OnSpecialAttack()
     {
-        Debug.Log("Special Attack input received");
+        if (!specialUnlocked)
+        {
+            Debug.Log("Special attack not unlocked yet!");
+            return;
+        }
+
         PerformAttack(specialAttack);
     }
+
 
     void PerformAttack(MoveData move)
     {
