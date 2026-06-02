@@ -43,6 +43,7 @@ public class MonsterWave : MonoBehaviour
     [SerializeField] private InventoryControl inventoryControl;
     [SerializeField] private ItemData heavyAttackItem;
     [SerializeField] private ItemData specialAttackItem;
+    public AudioClip finishSound;
 
     private void Start()
     {
@@ -161,6 +162,7 @@ public class MonsterWave : MonoBehaviour
     void WaveComplete()
     {
         waveActive = false;
+        OtherAudio.Instance.PlaySound(finishSound);
 
         Debug.Log("Wave " + currWave + " complete!");
 

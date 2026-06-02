@@ -19,7 +19,11 @@ public class PlayerAttack : MonoBehaviour
     [Header("Unlocks")]
     public bool heavyUnlocked = false;
     public bool specialUnlocked = false;
-    
+
+    public AudioClip pokeSound;
+    public AudioClip wackSound;
+    public AudioClip sweepSound;
+
 
     void Awake()
     {
@@ -29,6 +33,7 @@ public class PlayerAttack : MonoBehaviour
     void OnLightAttack()
     {
         attackAnimator.SetTrigger("poke");
+        OtherAudio.Instance.PlaySound(pokeSound);
         PerformAttack(lightAttack);
     }
 
@@ -40,6 +45,7 @@ public class PlayerAttack : MonoBehaviour
             return;
         }
         attackAnimator.SetTrigger("wack");
+        OtherAudio.Instance.PlaySound(wackSound);
         PerformAttack(heavyAttack);
     }
 
@@ -51,6 +57,7 @@ public class PlayerAttack : MonoBehaviour
             return;
         }
         attackAnimator.SetTrigger("sweep");
+        OtherAudio.Instance.PlaySound(sweepSound);
         PerformAttack(specialAttack);
     }
 

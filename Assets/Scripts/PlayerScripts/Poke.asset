@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MoveData
   moveName: Poke
   damage: 30
-  attackRange: 2
+  attackRange: 1
   cooldown: 1
   animation: {fileID: 0}

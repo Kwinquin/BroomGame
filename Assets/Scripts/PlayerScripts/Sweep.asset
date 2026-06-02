@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MoveData
   moveName: Sweep
   damage: 20
-  attackRange: 1
+  attackRange: 3
   cooldown: 5
   animation: {fileID: 0}
