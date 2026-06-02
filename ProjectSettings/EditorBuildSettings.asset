@@ -9,11 +9,14 @@ EditorBuildSettings:
     path: Assets/Scenes/StartScreen.unity
     guid: 1f9ddff74d7ff2048aefb0d5cec7b057
   - enabled: 1
-    path: Assets/Scenes/Main Game.unity
-    guid: 4c428cc196a3ffe4081f0aeca2008b9a
+    path: Assets/Scenes/NEWMAIN.unity
+    guid: 4e8100aa6c682ba4e9f75809f0b7dff4
   - enabled: 1
     path: Assets/Scenes/DeathScreen.unity
     guid: 21489fab764914d9aa37cc3d70fcf456
+  - enabled: 1
+    path: Assets/Scenes/WinScene.unity
+    guid: bd7017633b6ba4644991a95a56f56de3
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 50e23294410452e478b95117ca0d396c, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 50a7d3f52b025494a96bdfe67421eb6e, type: 3}

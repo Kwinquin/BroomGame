@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Poke
   m_EditorClassIdentifier: Assembly-CSharp::MoveData
   moveName: Poke
-  damage: 5
+  damage: 30
   attackRange: 2
   cooldown: 1
   animation: {fileID: 0}
