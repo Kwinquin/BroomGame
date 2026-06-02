@@ -4,6 +4,7 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     private int currentHealth;
+    private bool isDead = false;
 
     public MonsterWave waveManager;
 
@@ -15,11 +16,9 @@ public class EnemyHealth : MonoBehaviour
     {
         //this is working, don't move it
         waveManager = GameObject.FindWithTag("Manager").GetComponent<MonsterWave>();
-        
+
         spriteRenderer = GetComponent<SpriteRenderer>();
         originalColor = spriteRenderer.color;
-        
-
     }
 
 
@@ -30,15 +29,16 @@ public class EnemyHealth : MonoBehaviour
 
     public void TakeDamage(int amount)
     {
+        if (isDead) return;
+
         currentHealth -= amount;
         Debug.Log("Enemy Ouch");
         StartCoroutine(FlashRed());
 
-        if (currentHealth <= 0) 
-        { 
+        if (currentHealth <= 0)
+        {
             Die();
         }
-            
     }
 
     private IEnumerator FlashRed()
@@ -51,6 +51,8 @@ public class EnemyHealth : MonoBehaviour
 
     void Die()
     {
+        isDead = true;
+
         if (waveManager != null)
             waveManager.EnemyDied();
 

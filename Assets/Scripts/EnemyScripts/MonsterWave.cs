@@ -1,12 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
-public class WaveConfig
+public class WaveConfiguration
 {
-    public int WaveNumber = 1;
-    public int waveValue = 20;
+    public int WaveNumber = 1; //just for reference
+    [HideInInspector] public int enemiesToKill = 5;
+
+    [Header("Enemy Amounts")]
+    public int easyEnemies = 0;
+    public int mediumEnemies = 0;
+    // public int hardEnemies = 0; // if we wanted to add more types
+
+    [Header("Multipliers")]
     public float healthMultiplier = 1f;
     public float damageMultiplier = 1f;
     public float spawnDelay = 1f;
@@ -19,24 +27,19 @@ public class MonsterWave : MonoBehaviour
     public List<EnemyData> enemiesToSpawn = new List<EnemyData>();
 
     [Header("Wave Settings")]
-    public List<WaveConfig> waves = new List<WaveConfig>();
+    public List<WaveConfiguration> waves = new List<WaveConfiguration>();
 
     [Header("Wave Tracking")]
     public int currWave = 1;
-    public int waveValue = 0;
     public bool waveActive = false;
 
-    private int totalEnemiesThisWave = 0;
-    private int deadEnemiesThisWave = 0;
+    public int totalEnemiesThisWave = 0;
+    public int deadEnemiesThisWave = 0;
 
-
-    [Header("UI")]
-    public GameObject moveChoiceUI;
-
-    public PlayerAttack player;   // assign in Inspector
-    private bool spawningFinished = false;
-
-
+    [Header("Other References")]
+    public GameObject finishWaveUI;
+    public PlayerAttack player;
+    public float spawnRadius = 18f;
 
     private void Start()
     {
@@ -64,59 +67,69 @@ public class MonsterWave : MonoBehaviour
 
     void GenerateWave()
     {
-        WaveConfig config = waves[currWave - 1];
-        waveValue = config.waveValue;
+        WaveConfiguration config = waves[currWave - 1];
 
-        enemiesToSpawn.Clear();
+        enemiesToSpawn.Clear(); //don't count enemies from previous wave
 
-        while (waveValue > 0)
-        {
-            List<EnemyData> affordable = enemyTypes.FindAll(e => e.cost <= waveValue);
-            if (affordable.Count == 0)
-                break;
+        AddEnemiesOfDifficulty(0, config.easyEnemies); //easy is 0
+        AddEnemiesOfDifficulty(1, config.mediumEnemies); //medium is 1
 
-            EnemyData chosen = affordable[Random.Range(0, affordable.Count)];
-            enemiesToSpawn.Add(chosen);
-            waveValue -= chosen.cost;
-        }
-
-        // NEW: total enemies for this wave
         totalEnemiesThisWave = enemiesToSpawn.Count;
         deadEnemiesThisWave = 0;
+
+        Debug.Log($"Wave {currWave} generated. Total required kills: {totalEnemiesThisWave}");
+    }
+
+    void AddEnemiesOfDifficulty(int difficulty, int count)
+    {
+        List<EnemyData> matches = enemyTypes.FindAll(e => e.difficulty == difficulty);
+
+        for (int i = 0; i < count; i++)
+        {
+            EnemyData chosen = matches[Random.Range(0, matches.Count)];
+            enemiesToSpawn.Add(chosen);
+        }
     }
 
 
-    Vector3 GetSpawnAboveCamera(float minX, float maxX)
+    //this is setting the outside of camera-view radius in which the enemies can spawn in
+    Vector3 GetSpawnOnRadiusOutsideCamera()
     {
         Camera cam = Camera.main;
-        float randomX = Random.Range(minX, maxX);
+        Vector3 cameraPos = cam.transform.position;
 
-        Vector3 top = cam.ViewportToWorldPoint(
-            new Vector3(0.5f, 1.1f, cam.nearClipPlane + 10f)
-        );
+        float randomAngle = Random.Range(0f, Mathf.PI * 2f);
 
-        return new Vector3(randomX, top.y, 0f);
+        //these are like the coordinates on a unit circle, makes me sick
+        float spawnX = Mathf.Cos(randomAngle) * spawnRadius;
+        float spawnY = Mathf.Sin(randomAngle) * spawnRadius;
+
+        Vector3 spawnPosition = new Vector3(cameraPos.x + spawnX, cameraPos.y + spawnY, 0f);
+
+        return spawnPosition;
     }
+
 
     IEnumerator SpawnWave()
     {
-        spawningFinished = false;
-
-        WaveConfig config = waves[currWave - 1];
+        WaveConfiguration config = waves[currWave - 1];
         float spawnDelay = config.spawnDelay;
 
         for (int i = 0; i < enemiesToSpawn.Count; i++)
         {
             EnemyData data = enemiesToSpawn[i];
 
-            Vector3 spawnPos = GetSpawnAboveCamera(-10f, 10f);
+            Vector3 spawnPos = GetSpawnOnRadiusOutsideCamera();
             GameObject obj = Instantiate(data.prefab, spawnPos, Quaternion.identity);
 
-            // Apply manual multipliers
+            // Apply a multiplier depending on the wave we are in, instead of many types of enemies the enemies upgrade per wave
             EnemyHealth health = obj.GetComponent<EnemyHealth>();
-            health.Initialize(Mathf.RoundToInt(data.maxHealth * config.healthMultiplier));
-            health.waveManager = this;
-
+            if (health != null)
+            {
+                health.Initialize(Mathf.RoundToInt(data.maxHealth * config.healthMultiplier));
+                health.waveManager = this;
+            }
+            //same thing with the damage the enemies deal
             EnemyAttack atk = obj.GetComponent<EnemyAttack>();
             if (atk != null)
             {
@@ -129,11 +142,9 @@ public class MonsterWave : MonoBehaviour
         }
 
         enemiesToSpawn.Clear();
-
-        spawningFinished = true;
-
     }
 
+  //------------------------------------------------------------------------------------------------
     public void EnemyDied()
     {
         deadEnemiesThisWave++;
@@ -144,30 +155,28 @@ public class MonsterWave : MonoBehaviour
         }
     }
 
-
-
     void WaveComplete()
     {
         waveActive = false;
 
         Debug.Log("Wave " + currWave + " complete!");
 
-        moveChoiceUI.SetActive(true);
+        finishWaveUI.SetActive(true);
         Time.timeScale = 0f;
     }
 
-    public void OnMoveChosen()
+    public void NextWave() //this will be called by a button
     {
-        moveChoiceUI.SetActive(false);
+        finishWaveUI.SetActive(false);
         Time.timeScale = 1f;
 
-        // Unlock moves based on wave progression
-        if (currWave == 1)
+        // unlocking new attack moves
+        if (currWave == 2)
         {
             player.heavyUnlocked = true;
             Debug.Log("Heavy Attack Unlocked!");
         }
-        else if (currWave == 2)
+        else if (currWave == 3)
         {
             player.specialUnlocked = true;
             Debug.Log("Special Attack Unlocked!");
@@ -182,7 +191,7 @@ public class MonsterWave : MonoBehaviour
         else
         {
             Debug.Log("All waves complete!");
+            SceneManager.LoadScene("WinScene");
         }
     }
-
 }
