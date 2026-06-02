@@ -5,10 +5,14 @@ public class EnemyAI : MonoBehaviour
 {
     Transform destination; 
     AIPath ai;
+    Animator animator;
+    SpriteRenderer spriteRenderer;
 
     void Awake()
     {
         ai = GetComponent<AIPath>();
+        animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
         
         GameObject playerObject = GameObject.Find("Player");
@@ -31,6 +35,21 @@ public class EnemyAI : MonoBehaviour
             ai.destination = destination.position;
         }
     }
+    void HandleAnimations()
+    {
+        float horizontalSpeed = ai.velocity.x;
 
-    
+        if (horizontalSpeed > 0.1f)
+        {
+            spriteRenderer.flipX = false; // Facing Right (Default)
+        }
+        else if (horizontalSpeed < -0.1f)
+        {
+            spriteRenderer.flipX = true;  // Facing Left (Flipped)
+        }
+        if (animator != null)
+        {
+            animator.SetFloat("Speed", ai.velocity.magnitude);
+        }
+    } 
 }

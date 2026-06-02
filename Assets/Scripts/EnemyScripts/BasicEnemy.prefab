@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: -1156012867503077710}
   - component: {fileID: 2628108036818009811}
   - component: {fileID: 3361793481178520423}
+  - component: {fileID: 579215104835609265}
   m_Layer: 8
   m_Name: BasicEnemy
   m_TagString: Untagged
@@ -225,7 +226,7 @@ MonoBehaviour:
   repathRateCompatibility: NaN
   canSearchCompability: 0
   orientation: 1
-  enableRotation: 1
+  enableRotation: 0
   autoRepath:
     mode: 2
     interval: 0.5
@@ -266,7 +267,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f5529217110ea94a89fdaee17a4b408, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
-  waveManager: {fileID: 0}
 --- !u!114 &2628108036818009811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -319,3 +319,25 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0.042623043}
   m_Radius: 1.1073565
+--- !u!95 &579215104835609265
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3578607387308155049}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a9b4ef8a362ac6b49bbf5916f7d0282c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
