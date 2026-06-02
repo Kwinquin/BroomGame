@@ -40,8 +40,6 @@ public class PlayerControl : MonoBehaviour
         {
             lastPressedDirection = inputVector.y > 0 ? Direction.Up : Direction.Down; 
         }
-
-        
     }
     
     void Start()
@@ -49,6 +47,11 @@ public class PlayerControl : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         hitboxTransform = transform.Find("AttackHitbox");
         attackHitboxOffset = Math.Abs(GetComponentInChildren<Transform>().position.y); //currently sets to the position of the given circle atm; can comment this to just use serialize field instead
+    }
+
+    void OnDodge()
+    {
+        transform.position = new Vector2(movementX * (speed * 2) * Time.fixedDeltaTime + transform.position.x, movementY * (speed * 2) * Time.fixedDeltaTime + transform.position.y);
     }
 
     void OnBoom()
@@ -59,7 +62,6 @@ public class PlayerControl : MonoBehaviour
     void FixedUpdate()
     {
        
-        
         //basic movement
         float XmoveDistance = movementX * speed * Time.fixedDeltaTime;
         float YmoveDistance = movementY * speed * Time.fixedDeltaTime;
