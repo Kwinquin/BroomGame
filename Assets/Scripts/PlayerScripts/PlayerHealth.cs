@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -25,8 +26,8 @@ public class PlayerHealth : MonoBehaviour
 
     void PDie()
     {
+        SceneManager.LoadScene("DeathScreen");
         Debug.Log("RipPlayer");
-        Destroy(gameObject);
     }
 
 }
