@@ -5,10 +5,12 @@ public class InventoryControl : MonoBehaviour
     [SerializeField] private Inventory inventory;
     [SerializeField] private InventoryUI inventoryUI;
     [SerializeField] private ItemData testItem;
+    [SerializeField] private ItemData basicAttackItem; //starting atk
 
     private void Start()
     {
         inventory.ClearInventory();
+        AddInInventory(basicAttackItem);
         inventoryUI.RefreshUI();
     }
 

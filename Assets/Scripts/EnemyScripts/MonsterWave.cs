@@ -40,6 +40,9 @@ public class MonsterWave : MonoBehaviour
     public GameObject finishWaveUI;
     public PlayerAttack player;
     public float spawnRadius = 18f;
+    [SerializeField] private InventoryControl inventoryControl;
+    [SerializeField] private ItemData heavyAttackItem;
+    [SerializeField] private ItemData specialAttackItem;
 
     private void Start()
     {
@@ -174,11 +177,13 @@ public class MonsterWave : MonoBehaviour
         if (currWave == 2)
         {
             player.heavyUnlocked = true;
+            inventoryControl.AddInInventory(heavyAttackItem);
             Debug.Log("Heavy Attack Unlocked!");
         }
         else if (currWave == 3)
         {
             player.specialUnlocked = true;
+            inventoryControl.AddInInventory(specialAttackItem);
             Debug.Log("Special Attack Unlocked!");
         }
 
