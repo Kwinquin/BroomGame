@@ -2,6 +2,7 @@ Welcome to Broom Game!
 
 Genre: Action Adventure Roguelite
 Summary: This game is about a small creature living on a desk. It must battle dust-based monsters, survive, and win to get upgraded attacks.
+
 Link to Play: https://sofiavp.itch.io/broom-game
 
 Credits
@@ -17,6 +18,7 @@ Keyboard: https://freepngimg.com/png/5828-keyboard-png-image
 Mouse: https://pngimg.com/image/7675 
 
 Paperclip: https://pngimg.com/image/111361 
+
 
 Sound
 
