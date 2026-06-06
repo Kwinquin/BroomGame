@@ -270,7 +270,6 @@ MonoBehaviour:
   deadEnemiesThisWave: 0
   finishWaveUI: {fileID: 1093700599}
   player: {fileID: 945405768}
-  spawnRadius: 18
   inventoryControl: {fileID: 1419311513}
   heavyAttackItem: {fileID: 11400000, guid: b5fc2a007001e411197a268bff98797b, type: 2}
   specialAttackItem: {fileID: 11400000, guid: 9422dfdb1d5114d85a1c9f2449ba1815, type: 2}
@@ -617,7 +616,7 @@ Transform:
   m_GameObject: {fileID: 460042889}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.07901227, y: 0.029628424, z: 0}
+  m_LocalPosition: {x: -0.19, y: -0.42, z: 0}
   m_LocalScale: {x: 0.2962963, y: 0.2962963, z: 0.04938272}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -745,8 +744,8 @@ BoxCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: -1.4526813}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    border: {x: 0, y: 0, z: 0, w: 3.03125}
+    pivot: {x: 0.50794786, y: 0.29335558}
     oldSize: {x: 12.5, y: 7.5}
     newSize: {x: 12.5, y: 7.5}
     adaptiveTilingThreshold: 0.5
@@ -865,6 +864,7 @@ GameObject:
   - component: {fileID: 542034159}
   - component: {fileID: 542034161}
   - component: {fileID: 542034162}
+  - component: {fileID: 542034163}
   m_Layer: 7
   m_Name: Desk
   m_TagString: Untagged
@@ -1060,6 +1060,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d049d64b8f1ceb4e97f2702b9bdedb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::OtherAudio
+--- !u!68 &542034163
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 542034158}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -8.620397, y: -2.8076892}
+  - {x: 8.699861, y: -2.7282264}
+  - {x: 8.607153, y: 2.8739078}
+  - {x: -8.692487, y: 2.8978858}
+  - {x: -8.662782, y: -2.781201}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1 &598897288
 GameObject:
   m_ObjectHideFlags: 0
@@ -2329,14 +2375,14 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 945405758}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -2346,8 +2392,8 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_CollisionDetection: 1
+  m_Constraints: 4
 --- !u!1 &976850654
 GameObject:
   m_ObjectHideFlags: 0
