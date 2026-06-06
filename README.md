@@ -13,6 +13,9 @@ Mouse: https://pngimg.com/image/7675
 Paperclip: https://pngimg.com/image/111361 
 
 Sound
-Sweep: https://www.soundstripe.com/library/sound-effects  
+Sweep: https://freesound.org/s/500023/
 Whack: https://pixabay.com/sound-effects/film-special-effects-whack02-87839/ 
 Poke: https://www.myinstants.com/en/instant/cartoon-poke-25819/?utm_source=copy&utm_medium=share 
+Complete Wave: https://freesound.org/s/428156/
+Enemy Hurt: https://freesound.org/s/853662/
+Enemy Death: https://freesound.org/s/853659/
