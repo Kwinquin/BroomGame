@@ -12,7 +12,6 @@ public class WaveConfiguration
     [Header("Enemy Amounts")]
     public int easyEnemies = 0;
     public int mediumEnemies = 0;
-    // public int hardEnemies = 0; // if we wanted to add more types
 
     [Header("Multipliers")]
     public float healthMultiplier = 1f;
@@ -36,10 +35,15 @@ public class MonsterWave : MonoBehaviour
     public int totalEnemiesThisWave = 0;
     public int deadEnemiesThisWave = 0;
 
+    //physical boundaries of desk
+    private float minDeskX = -33f;
+    private float maxDeskX = 33f;
+    private float minDeskY = -10f;
+    private float maxDeskY = 10f;
+
     [Header("Other References")]
     public GameObject finishWaveUI;
     public PlayerAttack player;
-    public float spawnRadius = 18f;
     [SerializeField] private InventoryControl inventoryControl;
     [SerializeField] private ItemData heavyAttackItem;
     [SerializeField] private ItemData specialAttackItem;
@@ -72,11 +76,10 @@ public class MonsterWave : MonoBehaviour
     void GenerateWave()
     {
         WaveConfiguration config = waves[currWave - 1];
+        enemiesToSpawn.Clear(); 
 
-        enemiesToSpawn.Clear(); //don't count enemies from previous wave
-
-        AddEnemiesOfDifficulty(0, config.easyEnemies); //easy is 0
-        AddEnemiesOfDifficulty(1, config.mediumEnemies); //medium is 1
+        AddEnemiesOfDifficulty(0, config.easyEnemies); 
+        AddEnemiesOfDifficulty(1, config.mediumEnemies); 
 
         totalEnemiesThisWave = enemiesToSpawn.Count;
         deadEnemiesThisWave = 0;
@@ -95,24 +98,13 @@ public class MonsterWave : MonoBehaviour
         }
     }
 
-
-    //this is setting the outside of camera-view radius in which the enemies can spawn in
-    Vector3 GetSpawnOnRadiusOutsideCamera()
+    Vector3 GetSpawnInsideDeskBoundaries()
     {
-        Camera cam = Camera.main;
-        Vector3 cameraPos = cam.transform.position;
+        float randomX = Random.Range(minDeskX, maxDeskX);
+        float randomY = Random.Range(minDeskY, maxDeskY);
 
-        float randomAngle = Random.Range(0f, Mathf.PI * 2f);
-
-        //these are like the coordinates on a unit circle, makes me sick
-        float spawnX = Mathf.Cos(randomAngle) * spawnRadius;
-        float spawnY = Mathf.Sin(randomAngle) * spawnRadius;
-
-        Vector3 spawnPosition = new Vector3(cameraPos.x + spawnX, cameraPos.y + spawnY, 0f);
-
-        return spawnPosition;
+        return new Vector3(randomX, randomY, 0f);
     }
-
 
     IEnumerator SpawnWave()
     {
@@ -123,17 +115,16 @@ public class MonsterWave : MonoBehaviour
         {
             EnemyData data = enemiesToSpawn[i];
 
-            Vector3 spawnPos = GetSpawnOnRadiusOutsideCamera();
+            Vector3 spawnPos = GetSpawnInsideDeskBoundaries();
             GameObject obj = Instantiate(data.prefab, spawnPos, Quaternion.identity);
 
-            // Apply a multiplier depending on the wave we are in, instead of many types of enemies the enemies upgrade per wave
             EnemyHealth health = obj.GetComponent<EnemyHealth>();
             if (health != null)
             {
                 health.Initialize(Mathf.RoundToInt(data.maxHealth * config.healthMultiplier));
                 health.waveManager = this;
             }
-            //same thing with the damage the enemies deal
+            
             EnemyAttack atk = obj.GetComponent<EnemyAttack>();
             if (atk != null)
             {
@@ -148,7 +139,6 @@ public class MonsterWave : MonoBehaviour
         enemiesToSpawn.Clear();
     }
 
-  //------------------------------------------------------------------------------------------------
     public void EnemyDied()
     {
         deadEnemiesThisWave++;
@@ -170,12 +160,11 @@ public class MonsterWave : MonoBehaviour
         Time.timeScale = 0f;
     }
 
-    public void NextWave() //this will be called by a button
+    public void NextWave() 
     {
         finishWaveUI.SetActive(false);
         Time.timeScale = 1f;
 
-        // unlocking new attack moves
         if (currWave == 2)
         {
             player.heavyUnlocked = true;

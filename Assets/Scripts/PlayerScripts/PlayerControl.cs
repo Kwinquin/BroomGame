@@ -1,4 +1,3 @@
-
 using System;
 using UnityEditor.Animations;
 using UnityEngine;
@@ -7,7 +6,6 @@ using UnityEngine.UIElements;
 
 public class PlayerControl : MonoBehaviour
 {
-    
     private AudioSource audioSource;
     [SerializeField] public AudioClip gamemakerexplosion; 
 
@@ -29,9 +27,11 @@ public class PlayerControl : MonoBehaviour
     Vector2 targetposition;
     float dodgeCooldown = 0;
     BoxCollider2D playerHitbox; 
+
+    private Rigidbody2D rb;
+
     void OnMove(InputValue value)
     {
-        
         Vector2 inputVector = value.Get<Vector2>();
          
         movementX = inputVector.x;
@@ -51,8 +51,11 @@ public class PlayerControl : MonoBehaviour
     {
         playerHitbox = GetComponent<BoxCollider2D>();
         audioSource = GetComponent<AudioSource>();
+        
+        rb = GetComponent<Rigidbody2D>();
+        
         hitboxTransform = transform.Find("AttackHitbox");
-        attackHitboxOffset = Math.Abs(GetComponentInChildren<Transform>().position.y); //currently sets to the position of the given circle atm; can comment this to just use serialize field instead
+        attackHitboxOffset = Math.Abs(GetComponentInChildren<Transform>().position.y); 
     }
 
     void OnDodge()
@@ -70,13 +73,13 @@ public class PlayerControl : MonoBehaviour
             }
             if(lastPressedDirection == Direction.Down)
             {
-             targetposition = new Vector2(transform.position.x + 0, transform.position.y - 6);
+                targetposition = new Vector2(transform.position.x + 0, transform.position.y - 6);
             }
             if(lastPressedDirection == Direction.Left)
             {
                 targetposition = new Vector2(transform.position.x + 6, transform.position.y + 0);
             }
-            playerHitbox.enabled = !playerHitbox.enabled; //disables collider in dodge
+            playerHitbox.enabled = !playerHitbox.enabled; 
             directionAnimator.SetTrigger("dodge");
         }
         else
@@ -87,7 +90,7 @@ public class PlayerControl : MonoBehaviour
 
     void OnBoom()
     {
-            audioSource.Play();
+        audioSource.Play();
     }
 
     void FixedUpdate()
@@ -98,21 +101,19 @@ public class PlayerControl : MonoBehaviour
             if (transform.position.x == targetposition.x && transform.position.y == targetposition.y)
             {
                 isDodging = false;
-                dodgeCooldown = 150; //50 frames per second means 3 seconds
-                playerHitbox.enabled = !playerHitbox.enabled; //hitbox is re-enabled
+                dodgeCooldown = 150; 
+                playerHitbox.enabled = !playerHitbox.enabled; 
                 return;
             }
         }
-        //basic movement
-        float XmoveDistance = movementX * speed * Time.fixedDeltaTime;
-        float YmoveDistance = movementY * speed * Time.fixedDeltaTime;
         
-        if (isDodging != true)
+        if (isDodging != true && rb != null)
         {
-        transform.position = new Vector2(transform.position.x + XmoveDistance, transform.position.y + YmoveDistance);
+            Vector2 targetVelocity = new Vector2(movementX, movementY) * speed * Time.fixedDeltaTime;
+            
+            rb.linearVelocity = new Vector2(movementX, movementY) * speed;
         }
 
-        //hitbox rotation
         switch (direction)
         {
             case 'N':
@@ -127,23 +128,20 @@ public class PlayerControl : MonoBehaviour
             case 'W':
             hitboxTransform.position = transform.position + new Vector3(attackHitboxOffset,0,0);
             break;
-        
         }
-
-        //dodgecooldown timer
 
         if(dodgeCooldown > 0)
         {
-        dodgeCooldown = dodgeCooldown - 1;
+            dodgeCooldown = dodgeCooldown - 1;
         }
     }
+
     void Update()
     {  
-        //movement animation logic
         if(lastPressedDirection == Direction.Up)
         {
             directionAnimator.SetInteger("dir", 1);
-            direction = 'N'; //keeps track of direction for hitbox movement as well
+            direction = 'N'; 
         }
         if(lastPressedDirection == Direction.Right)
         {
